@@ -1,0 +1,131 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/solids/protos/SolidBox.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3495878015627009 0.3258818903125171 0.878401595265456 1.772398447722501
+  position 0.5402859579212504 -3.2446800681055565 3.963018359156819
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+  floorTileSize 0.2 0.2
+}
+E-puck {
+  hidden position_0_0 704.4246260070205
+  hidden position_0_1 678.3926515134425
+  hidden linearVelocity_0 -0.00016960141696025624 -0.00011254187044148746 -1.93728591415786e-08
+  hidden angularVelocity_0 0.007656238581104356 -0.011034889064749896 -1.805148193168515
+  hidden rotation_1 0 1 0 0.7078716029068072
+  hidden linearVelocity_1 0.038506009981154 0.024818065938428398 -1.8870297843546733e-08
+  hidden angularVelocity_1 -1.347671101617363 2.090943327479903 -1.8018963915497952
+  hidden rotation_2 0 -1 0 0.19136166195283857
+  hidden linearVelocity_2 -0.03894741976295333 -0.025122951778825356 1.7074757227212265e-08
+  hidden angularVelocity_2 1.3629792834133543 -2.113015991924641 -1.8019761624416657
+  translation 0.8469018557265406 0.19279286950931215 -5.7308174172874746e-05
+  rotation -6.061815662006575e-05 0.00017219274469557302 -0.9999999833375488 -0.5438578596368622
+  controller "controladorLab2"
+}
+SolidBox {
+  translation -0.57 -0.14 0.24
+  name "box(2)"
+  size 0.01 1 0.5
+}
+SolidBox {
+  translation -0.330799 0.595059 0.24
+  rotation 0 0 1 -0.785395307179586
+  name "box(3)"
+  size 0.01 0.7 0.5
+}
+SolidBox {
+  translation 0.399201 0.835059 0.24
+  rotation 0 0 1 -1.5707953071795862
+  name "box(6)"
+  size 0.01 1 0.5
+}
+SolidBox {
+  translation 0.899201 0.105059 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(8)"
+  size 0.01 1.5 0.5
+}
+SolidBox {
+  translation 0.379201 -0.014941 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(9)"
+  size 0.01 1 0.5
+}
+SolidBox {
+  translation 0.659201 0.455059 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(10)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.539201 0.265059 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(11)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.779201 0.265059 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(12)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.719201 0.025059 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(13)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.529201 -0.074941 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(14)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.479201 -0.354941 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(15)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.729201 -0.244941 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(16)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.189201 0.485059 0.24
+  rotation 0 0 1 -1.5707953071795862
+  name "box(7)"
+  size 0.01 0.4 0.5
+}
+SolidBox {
+  translation -0.19645 0.503136 0.24
+  rotation 0 0 1 -0.785395307179586
+  name "box(4)"
+  size 0.01 0.5 0.5
+}
+SolidBox {
+  translation -0.0208865 0.577574 0.24
+  rotation 0 0 -1 -5.307179586466759e-06
+  name "box(5)"
+  size 0.01 0.2 0.5
+}
+SolidBox {
+  translation -0.37 -0.17 0.24
+  name "box(1)"
+  size 0.01 1 0.5
+}

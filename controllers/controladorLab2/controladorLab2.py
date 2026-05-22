@@ -7,9 +7,6 @@ import os
 RADIO_RUEDA = 0.0205
 MAX_VELOCIDAD = 6.28
 
-# Configuración de la simulación (en milisegundos)
-TIME_STEP = 50
-
 # Reglas de decisión para el movimiento
 UMBRAL_OBSTACULO = 0.6  # Metros de distancia mínima al frente
 UMBRAL_PARED_LATERAL = 78.0  # Lectura cruda de los sensores de los lados
@@ -84,6 +81,8 @@ def guardar_fila_csv(escritor, paso, tiempo, ps0, ps7, ps1, ps2, ps5, ps6, dist_
 # ----------- MAIN -----------
 robot = Robot()
 
+TIME_STEP = int(robot.getBasicTimeStep()) # Por defecto va a 32ms
+
 # Configurar motores para que giren libres por velocidad infinita
 motor_izquierdo = robot.getDevice("left wheel motor")
 motor_derecho = robot.getDevice("right wheel motor")
@@ -147,10 +146,6 @@ while robot.step(TIME_STEP) != -1:
     giro_izquierdo = actual_enc_izq - anterior_enc_izq
     giro_derecho = actual_enc_der - anterior_enc_der
 
-    # Corregir errores de lectura iniciales si el sensor da valores extraños (infinitos o vacíos)
-    if math.isnan(giro_izquierdo) or math.isinf(giro_izquierdo): giro_izquierdo = 0.0
-    if math.isnan(giro_derecho) or math.isinf(giro_derecho):   giro_derecho = 0.0
-
     distancia_avanzada = (encoder_a_lineal(giro_izquierdo) + encoder_a_lineal(giro_derecho)) / 2.0
 
     # Actualizar memoria para el próximo ciclo
@@ -162,7 +157,6 @@ while robot.step(TIME_STEP) != -1:
 
     # 6. Tomar decisiones de navegación reactiva
     if estimacion_kalman <= UMBRAL_OBSTACULO:
-        # Obstáculo detectado al frente -> Escapar hacia el lado con más espacio libre
         if pared_izquierda > pared_derecha:
             vel_izq = VELOCIDAD_GIRO
             vel_der = -VELOCIDAD_GIRO
@@ -173,19 +167,16 @@ while robot.step(TIME_STEP) != -1:
             accion_actual = "GIRAR_IZQUIERDA"
 
     elif pared_izquierda > UMBRAL_PARED_LATERAL:
-        # Demasiado cerca de la pared izquierda -> Corrección suave a la derecha
         vel_izq = VELOCIDAD_AVANCE
         vel_der = VELOCIDAD_AVANCE * 0.3
         accion_actual = "CURVA_DERECHA"
 
     elif pared_derecha > UMBRAL_PARED_LATERAL:
-        # Demasiado cerca de la pared derecha -> Corrección suave a la izquierda
         vel_izq = VELOCIDAD_AVANCE * 0.3
         vel_der = VELOCIDAD_AVANCE
         accion_actual = "CURVA_IZQUIERDA"
 
     else:
-        # El camino está despejado -> Avanzar en línea recta
         vel_izq = VELOCIDAD_AVANCE
         vel_der = VELOCIDAD_AVANCE
         accion_actual = "AVANZAR"
