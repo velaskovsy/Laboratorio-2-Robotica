@@ -9,8 +9,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.3495878015627009 0.3258818903125171 0.878401595265456 1.772398447722501
-  position 0.5402859579212504 -3.2446800681055565 3.963018359156819
+  orientation 0.5296296830340618 0.6022168758282584 -0.5973501764600823 2.113169770035306
+  position 0.2258684052319654 0.05284690784614088 5.506735329557998
 }
 TexturedBackground {
 }
@@ -21,24 +21,14 @@ RectangleArena {
   floorTileSize 0.2 0.2
 }
 E-puck {
-  hidden position_0_0 704.4246260070205
-  hidden position_0_1 678.3926515134425
-  hidden linearVelocity_0 -0.00016960141696025624 -0.00011254187044148746 -1.93728591415786e-08
-  hidden angularVelocity_0 0.007656238581104356 -0.011034889064749896 -1.805148193168515
-  hidden rotation_1 0 1 0 0.7078716029068072
-  hidden linearVelocity_1 0.038506009981154 0.024818065938428398 -1.8870297843546733e-08
-  hidden angularVelocity_1 -1.347671101617363 2.090943327479903 -1.8018963915497952
-  hidden rotation_2 0 -1 0 0.19136166195283857
-  hidden linearVelocity_2 -0.03894741976295333 -0.025122951778825356 1.7074757227212265e-08
-  hidden angularVelocity_2 1.3629792834133543 -2.113015991924641 -1.8019761624416657
-  translation 0.8469018557265406 0.19279286950931215 -5.7308174172874746e-05
-  rotation -6.061815662006575e-05 0.00017219274469557302 -0.9999999833375488 -0.5438578596368622
+  translation -0.389958 -0.854953 -0.00104602
+  rotation -0.00024214498202169743 -0.00029976297774379025 0.9999999257539798 2.00818
   controller "controladorLab2"
 }
 SolidBox {
-  translation -0.57 -0.14 0.24
+  translation -0.57 -0.28 0.24
   name "box(2)"
-  size 0.01 1 0.5
+  size 0.01 1.3 0.5
 }
 SolidBox {
   translation -0.330799 0.595059 0.24
@@ -53,16 +43,28 @@ SolidBox {
   size 0.01 1 0.5
 }
 SolidBox {
-  translation 0.899201 0.105059 0.24
+  translation 0.899201 -0.014941 0.24
   rotation 0 0 1 1.01503e-06
   name "box(8)"
+  size 0.01 1.8 0.5
+}
+SolidBox {
+  translation 0.159201 -0.894941 0.24
+  rotation 0 0 1 -1.5707953071795862
+  name "box(18)"
   size 0.01 1.5 0.5
 }
 SolidBox {
-  translation 0.379201 -0.014941 0.24
+  translation -0.000799 -0.674941 0.24
+  rotation 0 0 1 -1.5707953071795862
+  name "box(19)"
+  size 0.01 0.75 0.5
+}
+SolidBox {
+  translation 0.379201 -0.094941 0.24
   rotation 0 0 1 1.01503e-06
   name "box(9)"
-  size 0.01 1 0.5
+  size 0.01 1.15 0.5
 }
 SolidBox {
   translation 0.659201 0.455059 0.24
@@ -77,7 +79,7 @@ SolidBox {
   size 0.08 0.08 0.5
 }
 SolidBox {
-  translation 0.779201 0.265059 0.24
+  translation 0.849201 0.265059 0.24
   rotation 0 0 1 1.01503e-06
   name "box(12)"
   size 0.08 0.08 0.5
@@ -89,7 +91,7 @@ SolidBox {
   size 0.08 0.08 0.5
 }
 SolidBox {
-  translation 0.529201 -0.074941 0.24
+  translation 0.429201 -0.074941 0.24
   rotation 0 0 1 1.01503e-06
   name "box(14)"
   size 0.08 0.08 0.5
@@ -101,9 +103,21 @@ SolidBox {
   size 0.08 0.08 0.5
 }
 SolidBox {
-  translation 0.729201 -0.244941 0.24
+  translation 0.599201 -0.604941 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(20)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.639201 -0.244941 0.24
   rotation 0 0 1 1.01503e-06
   name "box(16)"
+  size 0.08 0.08 0.5
+}
+SolidBox {
+  translation 0.859201 -0.424941 0.24
+  rotation 0 0 1 1.01503e-06
+  name "box(17)"
   size 0.08 0.08 0.5
 }
 SolidBox {
