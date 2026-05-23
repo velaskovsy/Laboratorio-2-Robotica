@@ -46,11 +46,11 @@ Además, cuando los sensores laterales detectan una pared cercana, el robot real
 
 Las acciones registradas por el controlador son:
 
--AVANZAR
--GIRAR_DERECHA
--GIRAR_IZQUIERDA
--CURVA_DERECHA
--CURVA_IZQUIERDA
+- AVANZAR
+- GIRAR_DERECHA
+- GIRAR_IZQUIERDA
+- CURVA_DERECHA
+- CURVA_IZQUIERDA
 
 # Filtro simple
 Se aplicó un filtro exponencial simple EMA sobre la distancia frontal obtenida desde los sensores ps0 y ps7.
