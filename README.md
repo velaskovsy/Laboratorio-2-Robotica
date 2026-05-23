@@ -1,9 +1,9 @@
 # Laboratorio-2-Robótica
 Integrantes:
--Benjamín Velásquez
--Hector Fuentes
--Diego Escobar
--Fernanda Cádiz
+- Benjamín Velásquez
+- Hector Fuentes
+- Diego Escobar
+- Fernanda Cádiz
 
 # Objetivo
 Implementar un sistema básico de navegación reactiva en Webots utilizando un robot móvil diferencial e-puck, empleando sensores de distancia y encoders de rueda para percibir el entorno y estimar el movimiento del robot.
