@@ -1,9 +1,9 @@
 # Laboratorio-2-Robótica
 Integrantes:
-Benjamín Velásquez
-Hector Fuentes
-Diego Escobar
-Fernanda Cádiz
+-Benjamín Velásquez
+-Hector Fuentes
+-Diego Escobar
+-Fernanda Cádiz
 
 # Objetivo
 Implementar un sistema básico de navegación reactiva en Webots utilizando un robot móvil diferencial e-puck, empleando sensores de distancia y encoders de rueda para percibir el entorno y estimar el movimiento del robot.
@@ -46,11 +46,11 @@ Además, cuando los sensores laterales detectan una pared cercana, el robot real
 
 Las acciones registradas por el controlador son:
 
-AVANZAR
-GIRAR_DERECHA
-GIRAR_IZQUIERDA
-CURVA_DERECHA
-CURVA_IZQUIERDA
+-AVANZAR
+-GIRAR_DERECHA
+-GIRAR_IZQUIERDA
+-CURVA_DERECHA
+-CURVA_IZQUIERDA
 
 # Filtro simple
 Se aplicó un filtro exponencial simple EMA sobre la distancia frontal obtenida desde los sensores ps0 y ps7.
@@ -94,28 +94,24 @@ En ambos escenarios se registraron las señales de distancia frontal (cruda, fil
 
 #### Comparación de señales de distancia frontal
 ![Comparación de distancias - Simple](./graficos/comparacion_distancias_simple.png)
-
 *Figura 1: Distancia frontal cruda, filtrada con EMA y estimada por Kalman en los primeros segundos del escenario simple.*
 
 Durante los primeros 1.152 segundos, la distancia cruda oscila entre 0.72 y 0.87 m, con fluctuaciones rápidas. El filtro EMA suaviza las variaciones, mientras que la estimación de Kalman (que parte de 0.80 m) se estabiliza rápidamente alrededor de 0.75–0.76 m, con una dispersión mucho menor. Esto demuestra que el filtro de Kalman, al fusionar la predicción por encoders (avance constante de 0.00206 m/paso) con la medición, logra una estimación más estable que cualquiera de las señales individuales.
 
 #### Ganancia de Kalman
 ![Ganancia de Kalman - Simple](./graficos/ganancia_kalman_simple.png)
-
 *Figura 2: Evolución de la ganancia de Kalman en el escenario simple.*
 
 La ganancia comienza en 0.716 y disminuye rápidamente a 0.146 en menos de 1 segundo, manteniéndose estable en adelante. Esto indica que el filtro parte con alta incertidumbre y, al recibir mediciones consistentes, incrementa su confianza en la predicción, reduciendo el peso de la medición.
 
 #### Avance por encoders
 ![Avance por encoders - Simple](./graficos/avance_encoders_simple.png)
-
 *Figura 3: Desplazamiento lineal por paso a partir de los encoders.*
 
 El avance es constante (0.00206 m por paso), reflejando que el robot se desplaza a velocidad uniforme durante todo el experimento. No se observan variaciones asociadas a giros en este tramo.
 
 #### Acciones realizadas
 ![Acciones - Simple](./graficos/acciones_simple.png)
-
 *Figura 4: Distribución de acciones en todo el escenario simple.*
 
 Predomina la acción `AVANZAR`, con algunas curvas y giros esporádicos, lo cual es coherente con un entorno de baja densidad de obstáculos.
@@ -124,35 +120,30 @@ Predomina la acción `AVANZAR`, con algunas curvas y giros esporádicos, lo cual
 
 #### Comparación de señales de distancia frontal
 ![Comparación de distancias - Complejo](./graficos/comparacion_distancias_complejo.png)
-
 *Figura 5: Distancia frontal cruda, filtrada con EMA y estimada por Kalman en el escenario complejo.*
 
 Las señales cruda y EMA se mantienen constantes en 0.76 m, indicando que los sensores frontales están saturados o no detectan cambios. En cambio, la estimación de Kalman aumenta linealmente de 0.76 m a 0.87 m, reflejando que el robot se aleja del obstáculo frontal. Esta tendencia es capturada gracias a la predicción por encoders (movimiento de avance), demostrando la ventaja de la fusión sensorial.
 
 #### Ganancia de Kalman
 ![Ganancia de Kalman - Complejo](./graficos/ganancia_kalman_complejo.png)
-
 *Figura 6: Evolución de la ganancia de Kalman en el escenario complejo.*
 
 La ganancia parte en 0.72 y cae bruscamente a 0.02, permaneciendo baja. Esto significa que el filtro confía casi exclusivamente en la predicción por encoders, ignorando la medición frontal constante y poco fiable.
 
 #### Avance por encoders
 ![Avance por encoders - Complejo](./graficos/avance_encoders_complejo.png)
-
 *Figura 7: Desplazamiento lineal por paso en el escenario complejo.*
 
 Nuevamente, el avance es constante (≈0.0018 m/paso), confirmando velocidad uniforme.
 
 #### Predicción vs estimación final
 ![Predicción vs estimación - Complejo](./graficos/prediccion_vs_estimacion_complejo.png)
-
 *Figura 8: Comparación entre la predicción (solo encoders) y la estimación final de Kalman.*
 
 En un punto intermedio, la predicción cae abruptamente a 0.31 m (posible error de deslizamiento o acumulación de encoders), pero la estimación de Kalman se mantiene estable y en aumento (0.76 → 0.87 m) porque la ganancia es muy baja (0.02). Esto evita una maniobra errónea de giro.
 
 #### Acciones realizadas
 ![Acciones - Complejo](./graficos/acciones_complejo.png)
-
 *Figura 9: Distribución de acciones en el escenario complejo.*
 
 Se observa una variedad de acciones: `AVANZAR`, `CURVA_DERECHA`, `CURVA_IZQUIERDA`, `GIRAR_DERECHA` y `GIRAR_IZQUIERDA`. Esto refleja la necesidad de correcciones continuas en pasillos estrechos.
